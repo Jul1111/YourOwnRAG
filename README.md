@@ -114,31 +114,31 @@ Goodbye!
 
 ### Fichiers de Code
 
-- [ ] **Python** (.py)
-- [ ] **JavaScript/TypeScript** (.js, .ts, .jsx, .tsx)
-- [ ] **Java** (.java)
-- [ ] **C/C++** (.c, .cpp, .h)
-- [ ] **C#** (.cs)
-- [ ] **Ruby** (.rb)
-- [ ] **Go** (.go)
-- [ ] **Rust** (.rs)
-- [ ] **PHP** (.php)
-- [ ] **Swift** (.swift)
-- [ ] **SQL** (.sql)
+- [ ] **Python** (.py) (en cours)
+- [ ] **JavaScript/TypeScript** (.js, .ts, .jsx, .tsx) (en cours)
+- [ ] **Java** (.java) (en cours)
+- [ ] **C/C++** (.c, .cpp, .h) (en cours)
+- [ ] **C#** (.cs) (en cours)
+- [ ] **Ruby** (.rb) (en cours)
+- [ ] **Go** (.go) (en cours)
+- [ ] **Rust** (.rs) (en cours)
+- [ ] **PHP** (.php) (en cours)
+- [ ] **Swift** (.swift) (en cours)
+- [ ] **SQL** (.sql) (en cours)
 
 ### Fichiers de Configuration
 
-- [ ] **JSON** (.json)
-- [ ] **YAML** (.yaml, .yml)
-- [ ] **TOML** (.toml)
-- [ ] **INI** (.ini)
-- [ ] **XML** (.xml)
+- [ ] **JSON** (.json) (en cours)
+- [ ] **YAML** (.yaml, .yml) (en cours)
+- [ ] **TOML** (.toml) (en cours)
+- [ ] **INI** (.ini) (en cours)
+- [ ] **XML** (.xml) (en cours)
 
 ### Documents
 
-- [x] **Texte brut** (.txt) ✅ Testé et validé
-- [ ] **Markdown** (.md)
-- [ ] **PDF** (.pdf)
+- [x] **Texte brut** (.txt)
+- [ ] **Markdown** (.md) (en cours)
+- [ ] **PDF** (.pdf) (en cours)
 
 ## 🔧 Fonctionnement Technique
 
