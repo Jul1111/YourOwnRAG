@@ -1,7 +1,4 @@
 # Plan de Développement : Création d'un RAG personnalisé
-
-Ce guide suit la structure du tutoriel Hugging Face. **Règle :** Ne pas passer à la phase suivante tant que la précédente n'est pas validée.
-
 ---
 
 ## Phase 1 : Préparation et Chargement des Données
