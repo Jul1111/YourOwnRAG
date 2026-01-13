@@ -1,12 +1,10 @@
-dataset = []
-
 def load_dataset(filename):
     with open(filename,'r') as file:
         dataset = file.readlines()
 
-        print(f'Loaded {len(dataset)} entries')
+        print(f'Loaded {len(dataset)} entries in the dataset.')
 
-        #return dataset
+        return dataset
 
-load_dataset('tmp/cat-facts.txt')
+
 
