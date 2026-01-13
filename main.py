@@ -1,13 +1,19 @@
 from src.retrievalFunction import retrieve
 from src.implementVectorDB import LANGUAGE_MODEL, create_vector_db_from_dataset, VECTOR_DB, reset_vector_db
-from src.loadingDataset import load_dataset
+from src.loadingDataset import load_multiple_files
 import ollama
 
 # Réinitialiser au cas où
 reset_vector_db()
 # Load dataset and create vector database
-dataset = load_dataset('tmp/cat-facts.txt')
-create_vector_db_from_dataset(dataset)
+# Charger depuis plusieurs sources
+chunks = load_multiple_files([
+    'tmp/cat-facts.txt',
+    'data/',
+    'src/mon_module.py',
+    'config.json',
+])
+create_vector_db_from_dataset(chunks)
 
 print('\n' + '='*50)
 print('Chatbot is ready! Type "exit" to quit.')
