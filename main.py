@@ -7,22 +7,27 @@ import easygui as eg
 
 def select_knowledge_sources():
     """
-    Menu interactif pour choisir les sources via interface graphique.
-    Fonctionne sur Windows, macOS et Linux.
+    Menu texte pour choisir le TYPE de source, puis utilise easygui pour sélectionner.
     """
-    choice = eg.buttonbox(
-        msg='Configuration de la base de connaissance\n\nQue voulez-vous charger ?',
-        title='YourOwnRAG',
-        choices=['Fichiers', 'Dossiers', 'Défaut']
-    )
+    print('\n' + '='*60)
+    print('Configuration de la base de connaissance')
+    print('='*60)
+    print('\nOptions:')
+    print('1. Sélectionner des fichiers')
+    print('2. Sélectionner des dossiers')
+    print('3. Continuer sans charger (utiliser BDD existante)')
+    print('4. Utiliser les sources par défaut')
     
-    if choice is None:
-        return ['tmp/cat-facts.txt']
+    while True:
+        choice = input('\nChoisissez une option (1-4): ').strip()
+        if choice in ['1', '2', '3', '4']:
+            break
+        print("✗ Entrée invalide, veuillez entrer 1, 2, 3 ou 4")
     
     sources = []
     
-    if choice == 'Fichiers':
-        # Sélectionner plusieurs fichiers
+    if choice == '1':
+        # Sélectionner plusieurs fichiers via easygui
         files = eg.fileopenbox(
             msg='Sélectionnez les fichiers à charger',
             title='Sélection de fichiers',
@@ -37,8 +42,8 @@ def select_knowledge_sources():
         else:
             print("\n✗ Aucun fichier sélectionné")
     
-    elif choice == 'Dossiers':
-        # Sélectionner plusieurs dossiers
+    elif choice == '2':
+        # Sélectionner plusieurs dossiers via easygui
         print("\nVous pouvez sélectionner plusieurs dossiers")
         count = 0
         while True:
@@ -57,11 +62,16 @@ def select_knowledge_sources():
         else:
             print("\n✗ Aucun dossier sélectionné")
     
-    else:  # Défaut
+    elif choice == '3':
+        # Continuer sans charger
+        print("✓ Mode sans chargement - Utilisation de la BDD existante")
+        sources = None
+    
+    else:  # choice == '4'
         sources = ['tmp/cat-facts.txt']
         print("✓ Sources par défaut chargées")
     
-    return sources if sources else ['tmp/cat-facts.txt']
+    return sources
 
 # Réinitialiser la base de vecteurs
 reset_vector_db()
@@ -69,10 +79,14 @@ reset_vector_db()
 # Sélectionner les sources de connaissance
 sources = select_knowledge_sources()
 
-# Charger et créer la base de données vectorielle
-print('\nChargement des sources...')
-chunks = load_multiple_files(sources)
-create_vector_db_from_dataset(chunks)
+# Charger et créer la base de données vectorielle si sources sont spécifiées
+if sources is not None:
+    print('\nChargement des sources...')
+    chunks = load_multiple_files(sources)
+    create_vector_db_from_dataset(chunks)
+else:
+    print('\n⚠️ Aucune source chargée - Utilisation de la BDD existante')
+    print('(Assurez-vous que la BDD contient déjà des données)')
 
 print('\n' + '='*50)
 print('Chatbot is ready! Type "exit" to quit.')
