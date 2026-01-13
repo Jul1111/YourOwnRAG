@@ -31,11 +31,14 @@ text_splitter_code = RecursiveCharacterTextSplitter(
 
 #Fonction pour créer la base de données vectorielle à partir du dataset chargé
 def create_vector_db_from_dataset(dataset):
+    chunk_count = 0
     for data in dataset:
         if data.strip().endswith(('.py', '.js', '.java', '.cpp', '.cs', '.rb', '.go')):
             chunks = text_splitter_code.split_text(data)
         else:
             chunks = text_splitter.split_text(data)
-        
+
         for chunk in chunks:
             add_chunk_to_database(chunk)
+            chunk_count += 1
+            print(f'Added chunk {chunk_count}/{len(VECTOR_DB)} to the database')
