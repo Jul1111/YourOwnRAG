@@ -94,27 +94,6 @@ Choisissez l'option 1 ou 2 pour une sélection graphique native (macOS/Windows).
 
 ```
 Configuration de la base de connaissance
-============================================================
-
-Options:
-1. Sélectionner des fichiers
-2. Sélectionner des dossiers
-3. Continuer sans charger (utiliser BDD existante)
-4. Utiliser les sources par défaut
-
-Choisissez une option (1-4): 1
-
-[Dialogue de sélection de fichiers s'ouvre...]
-
-✓ 1 fichier(s) sélectionné(s)
-  - document.pdf
-
-Chargement des sources...
-📄 Traitement du fichier: document.pdf
-✓ document.pdf (pdf) -> 156 chunks
-
-✅ Résumé: 1 fichier(s) traité(s), 156 chunk(s) créé(s)
-
 ==================================================
 Chatbot is ready! Type "exit" to quit.
 ==================================================
