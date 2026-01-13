@@ -1,6 +1,14 @@
 from src.retrievalFunction import retrieve
-from src.implementVectorDB import LANGUAGE_MODEL
+from src.implementVectorDB import LANGUAGE_MODEL, create_vector_db_from_dataset, VECTOR_DB, reset_vector_db
+from src.loadingDataset import load_dataset
 import ollama
+
+
+# Réinitialiser au cas où
+reset_vector_db()
+# Load dataset and create vector database
+dataset = load_dataset('tmp/cat-facts.txt')
+create_vector_db_from_dataset(dataset)
 
 # Get user input
 input_query = input('Ask me a question: ')

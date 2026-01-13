@@ -1,12 +1,10 @@
 import ollama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from src.loadingDataset import load_dataset
+from src.implementVectorDB import LANGUAGE_MODEL, create_vector_db_from_dataset, VECTOR_DB
+
 EMBEDDING_MODEL = 'hf.co/CompendiumLabs/bge-base-en-v1.5-gguf'
-LANGUAGE_MODEL = 'hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF'
 
-VECTOR_DB = []
-
-dataset = load_dataset('tmp/cat-facts.txt')
 #Fonction pour ajouter un chunk à la base de données vectorielle
 def add_chunk_to_database(chunk):
   embedding = ollama.embed(model=EMBEDDING_MODEL, input=chunk)['embeddings'][0]
@@ -43,3 +41,7 @@ def create_vector_db_from_dataset(dataset):
             add_chunk_to_database(chunk)
             chunk_count += 1
             print(f'Added chunk {chunk_count}/{len(VECTOR_DB)} to the database')
+
+def reset_vector_db():
+    global VECTOR_DB
+    VECTOR_DB.clear()
